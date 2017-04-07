@@ -1,0 +1,24 @@
+<html>
+    <head>
+       <title>Registration</title>
+    </head>
+    <body>
+        <div id='wrapper'>
+            <div class='box'>
+                <form action='/create' method='POST'>
+                    <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                    <p>Ninja Name: <input type='text' name='form[ninja_name]'></p>
+                    <p>Ninja Description: <input type='text' name='form[ninja_description]'></p>
+                    <input type='submit' value='Create'>
+                </form>
+            </div>
+            <% if flash[:errors] %>
+                <% flash[:errors].each do |i| %>
+                    <ul style="list-style: none;">
+                        <li><%= i %></li>
+                    </ul>
+                <% end %>
+            <% end %>
+        </div>
+    </body>
+</html>
